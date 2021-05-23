@@ -1,6 +1,9 @@
 import express, { Express } from 'express';
 import cors from 'cors';
+import connectDB from './config/db';
+
 const app: Express = express();
+connectDB();
 
 const PORT = process.env.PORT || 5000;
 
