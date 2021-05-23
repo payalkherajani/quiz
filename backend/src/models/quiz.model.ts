@@ -13,6 +13,7 @@ interface Question {
 export interface Puzzel {
     quizname: string;
     questions: Question[],
+    image: string;
     points: number;
     negativemark: number;
 }
@@ -28,6 +29,9 @@ const quizSchema = new Schema<Puzzel>(
                 question: {
                     type: String,
                     required: true
+                },
+                image: {
+                    type: String
                 },
                 options: [
                     {
