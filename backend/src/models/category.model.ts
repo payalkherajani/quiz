@@ -1,11 +1,9 @@
 import mongoose, { Schema } from 'mongoose';
-import { Puzzel } from './quiz.model';
 
 //interface representing document in MongoDB
 interface Category {
     level: string;
     image: string;
-    quizzes: Puzzel[];
 }
 
 const categoryModel = new Schema<Category>(
@@ -18,7 +16,6 @@ const categoryModel = new Schema<Category>(
             type: String,
             required: true
         },
-        quizzes: [{ ref: 'Quiz', type: Schema.Types.ObjectId }]
 
     },
 
