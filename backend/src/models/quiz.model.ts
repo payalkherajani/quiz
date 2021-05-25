@@ -8,14 +8,15 @@ interface Option {
 interface Question {
     question: string;
     options: Option[];
+    image: string;
+    points: number;
+    negativemark: number;
 }
 
 export interface Puzzel {
     quizname: string;
-    questions: Question[],
-    image: string;
-    points: number;
-    negativemark: number;
+    questions: Question[];
+    totalscore: number;
 }
 
 const quizSchema = new Schema<Puzzel>(
