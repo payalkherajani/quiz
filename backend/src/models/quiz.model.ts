@@ -1,11 +1,11 @@
 import mongoose, { Schema } from 'mongoose';
 
-interface Option {
+export interface Option {
     text: string;
     isRight: boolean;
 }
 
-interface Question {
+export interface Question {
     question: string;
     options: Option[];
     image: string;
@@ -15,6 +15,7 @@ interface Question {
 
 export interface Puzzel {
     quizname: string;
+    category: string;
     questions: Question[];
     totalscore: number;
 }
@@ -24,6 +25,10 @@ const quizSchema = new Schema<Puzzel>(
         quizname: {
             type: String,
             required: true
+        },
+        category: {
+            type: Schema.Types.ObjectId,
+            ref: 'categories'
         },
         questions: [
             {
@@ -57,16 +62,12 @@ const quizSchema = new Schema<Puzzel>(
             }
         ],
 
-        totalscore: {
-            type: Number
-        }
-
     },
     {
         timestamps: true
     }
 );
 
-const Quiz = mongoose.model<Puzzel>('Quiz', quizSchema);
+const Quiz = mongoose.model<Puzzel>('quiz', quizSchema);
 
 export default Quiz;

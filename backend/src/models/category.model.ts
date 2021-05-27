@@ -1,9 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
 
 //interface representing document in MongoDB
-interface Category {
+export interface Category {
     level: string;
     image: string;
+    quizzes: string[];
 }
 
 const categoryModel = new Schema<Category>(
@@ -16,7 +17,12 @@ const categoryModel = new Schema<Category>(
             type: String,
             required: true
         },
-
+        quizzes: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'quiz'
+            }
+        ]
     },
 
     {
@@ -24,6 +30,6 @@ const categoryModel = new Schema<Category>(
     }
 );
 
-const Categories = mongoose.model<Category>('Categories', categoryModel);
+const Categories = mongoose.model<Category>('categories', categoryModel);
 
 export default Categories;
