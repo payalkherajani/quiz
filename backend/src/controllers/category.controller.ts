@@ -1,6 +1,6 @@
 // import Category from '../models/index';
 import { Request, Response } from 'express';
-import asyncHandler from '../middlewares/async-handler.middleware';
+import { asyncHandler } from '../middlewares';
 import { Categories } from '../models';
 
 //@desc   Add a New Category

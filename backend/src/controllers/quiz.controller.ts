@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import asynHandler from "../middlewares/async-handler.middleware";
+import { asyncHandler } from "../middlewares";
 import { Quiz } from "../models";
 import { Puzzel } from "../models/quiz.model";
 
@@ -7,14 +7,14 @@ import { Puzzel } from "../models/quiz.model";
 //route   /api/quiz
 //access  Public
 
-const addNewQuiz = asynHandler(async (req: Request, res: Response) => {
-    const { quizname, questions, totalscore }: Puzzel = req.body;
+const addNewQuiz = asyncHandler(async (req: Request, res: Response) => {
+    const { quizname, questions, category }: Puzzel = req.body;
     const addQuiz = new Quiz({
         quizname,
         questions,
-        totalscore
+        category
     });
-    await addQuiz.save();  //_id 
+    const newlyCreatedQuiz = await addQuiz.save();  //_id 
     // put category_model call and push quiz id
 });
 
