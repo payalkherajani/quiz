@@ -1,14 +1,8 @@
-import { Button } from 'react-bootstrap';
-import './App.css';
+import Landing from './screens/Landing';
 
 function App() {
   return (
-    <div className="App">
-      Hello Typescript
-      <Button variant="primary">
-        flat button
-     </Button>
-    </div>
+    <Landing />
   );
 }
 
