@@ -1,18 +1,26 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import brain from '../assets/brain.png';
+import { Container, Row, Col, Button, Image, Badge, Card } from 'react-bootstrap';
+import { Categories, Footer } from '../components';
+
+
 const Landing = () => {
     return (
-        <Container className="text-center min-vh-100">
-            <Row className="justify-content-center align-items-center min-vh-100">
-                <Col xs="9">
-                    <img src={brain} alt="landing" className="mw-100" />
+        <Container fluid className="p-0 m-0">
+            <Row className="flex-column m-0">
+                <Col className="wrapper mb-3">
+                    <Container className="d-flex align-items-end flex-column justify-content-center">
+                        <h1 className="text-primary">PAHELI</h1>
+                        <h5 className="text-info">#BujhoToJane</h5>
+                    </Container>
                 </Col>
 
-                <Col xs="2">
-                    <Button variant="primary">START</Button>
+                <Col className="mb-3">
+                    <Categories />
                 </Col>
 
+                <Col>
+                    <Footer />
+                </Col>
             </Row>
         </Container>
     );
