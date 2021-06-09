@@ -3,11 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+img{
+    height: 400px;
+}
 
-.wrapper {
-    background: url("./assets/question.jpg");
-    background-size: cover;
-    background-position: center;
-    min-height: 50vh;
-    max-width: 100%;
+footer{
+    position: sticky;
+    bottom: 10px;
+    text-align: center;
 }

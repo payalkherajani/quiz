@@ -14,7 +14,7 @@ const Landing = () => {
     return (
         <Container fluid className="p-0 m-0">
             <Row className="flex-column m-0">
-                <Col className="mb-3">
+                <Col className="mb-3" >
                     <Carousel />
                 </Col>
 
