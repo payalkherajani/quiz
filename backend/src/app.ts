@@ -6,10 +6,11 @@ import quizRoutes from './routes/quiz.route';
 
 const app: Express = express();
 connectDB();
+app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+
 app.use(express.json());  //to accept req.body
 
 //routes
