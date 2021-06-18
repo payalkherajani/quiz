@@ -1,14 +1,15 @@
 import axios from 'axios';
+import { Category, ServerError } from '../types/category.types';
 
-console.log(process.env.REACT_APP_SERVER_URL);
-
-const getAllCategories = async () => {
+const getAllCategories = async (): Promise<Category | ServerError> => {
     try {
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/category`);
+        const response = await axios.get<Category>(`${process.env.REACT_APP_SERVER_URL}/api/category`);
         console.log({ response });
-        return response;
+        return response.data;
     } catch (err) {
         console.log(err);
+        return { message: 'Something Went wrong' } as ServerError;
+
     }
 };
 
