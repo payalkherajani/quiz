@@ -1,8 +1,5 @@
 import * as React from "react";
-
-interface AppContextInterface {
-    theme: string;
-}
+import { AppContextInterface } from '../types/context.types';
 
 export const AppCtx = React.createContext<AppContextInterface>({ theme: 'dark' });
 
@@ -10,7 +7,7 @@ const sampleAppContext: AppContextInterface = {
     theme: 'dark'
 };
 
-export const Provider: React.FC = ({ children }) => {
+export const Provider: React.FC = ({ children }): JSX.Element => {
 
     return (
         <AppCtx.Provider value={sampleAppContext}>
