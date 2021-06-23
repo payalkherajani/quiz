@@ -20,5 +20,5 @@ export const Provider: React.FC = ({ children }): JSX.Element => {
     );
 };
 
-export const appContext = () => React.useContext(AppCtx);
+export const AppContext = () => React.useContext(AppCtx);
 
