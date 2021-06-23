@@ -61,6 +61,10 @@ const quizSchema = new Schema<Puzzel>(
                 }
             }
         ],
+        totalscore: {
+            type: Number,
+            default: 0
+        }
 
     },
     {
