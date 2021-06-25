@@ -8,7 +8,6 @@ import { useAppContext } from '../context/Context';
 const Landing = (): JSX.Element => {
 
     const { state, dispatch } = useAppContext();
-    console.log({ state });
 
     useEffect(() => {
         getAllCategories(dispatch);

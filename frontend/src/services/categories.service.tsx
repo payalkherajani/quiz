@@ -1,14 +1,17 @@
 import axios from 'axios';
+import { Dispatch } from 'react';
+import { toast } from 'react-toastify';
 import { GET_ALL_CATEGORIES } from '../constants/constants';
-import { Category, ServerError } from '../types/category.types';
-import { ActionsTypes } from '../types/reducer.types';
+import { ActionsTypes, CategoriesRes } from '../types/types';
 
-const getAllCategories = async (dispatch: (action: ActionsTypes) => void) => {
+
+const getAllCategories = async (dispatch: Dispatch<ActionsTypes>): Promise<void> => {
     try {
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/category`);
+        const response = await axios.get<CategoriesRes>(`${process.env.REACT_APP_SERVER_URL}/api/category`);
         dispatch({ type: GET_ALL_CATEGORIES, payload: { categories: response.data.categories } });
     } catch (err) {
         console.log(err);
+        toast.error('Something went wrong in fetching categories');
     }
 };
 

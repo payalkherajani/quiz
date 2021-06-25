@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StateInterface, ContextValue } from '../types/context.types';
+import { StateInterface, ContextValue } from '../types/types';
 import { reducer } from '../reducer/Reducer';
 
 export const CustomContext = React.createContext({} as ContextValue);
