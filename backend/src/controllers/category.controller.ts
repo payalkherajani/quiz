@@ -2,6 +2,7 @@
 import { Request, Response } from 'express';
 import { asyncHandler } from '../middlewares';
 import { Categories } from '../models';
+import { Category } from '../models/category.model';
 
 //@desc   Add a New Category
 //route   /api/category
@@ -20,8 +21,8 @@ const addNewCategory = asyncHandler(async (req: Request, res: Response) => {
 //route   /api/category
 //access  Public
 const getAllCategories = asyncHandler(async (req: Request, res: Response) => {
-    const categories = await Categories.find({});
-    res.status(200).json({ success: true, data: categories });
+    const categories: Category[] = await Categories.find({});
+    res.status(200).json({ success: true, categories });
 });
 
 

@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Image, Badge, Card } from 'react-bootstrap';
 import { Categories, Footer, Carousel } from '../components';
 import { getAllCategories } from '../services/categories.service';
+import { useAppContext } from '../context/Context';
 
 
+const Landing = (): JSX.Element => {
 
-const Landing = () => {
+    const { dispatch } = useAppContext();
 
     useEffect(() => {
-        getAllCategories();
+        getAllCategories(dispatch);
     }, []);
 
     return (

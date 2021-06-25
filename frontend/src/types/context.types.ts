@@ -1,7 +1,11 @@
-export interface AppContextInterface {
-    theme: string;
-}
+import { ActionsTypes } from "./reducer.types";
 
 export interface StateInterface {
     user: {};
+    categories: [];
+}
+
+export interface ContextValue {
+    state: StateInterface;
+    dispatch: (action: ActionsTypes) => void;
 }

@@ -1,11 +1,13 @@
 import * as React from "react";
-import { AppContextInterface, StateInterface } from '../types/context.types';
+import { StateInterface, ContextValue } from '../types/context.types';
 import { reducer } from '../reducer/Reducer';
 
-export const AppCtx = React.createContext({});
+export const AppCustomCtx = React.createContext({} as ContextValue);
+
 
 const initialState: StateInterface = {
-    user: {}
+    user: {},
+    categories: []
 };
 
 export const Provider: React.FC = ({ children }): JSX.Element => {
@@ -13,12 +15,12 @@ export const Provider: React.FC = ({ children }): JSX.Element => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
     return (
-        <AppCtx.Provider value={{ state, dispatch }}>
+        <AppCustomCtx.Provider value={{ state, dispatch }}>
             {children}
-        </AppCtx.Provider>
+        </AppCustomCtx.Provider>
 
     );
 };
 
-export const AppContext = () => React.useContext(AppCtx);
 
+export const useAppContext = () => React.useContext(AppCustomCtx);
