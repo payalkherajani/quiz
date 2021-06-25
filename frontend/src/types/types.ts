@@ -17,7 +17,7 @@ export interface ContextValue {
 export type ActionsTypes =
     | {
         type: typeof GET_ALL_CATEGORIES,
-        payload: { categories: Category[]; };
+        payload: { categories: []; };
     };
 
 //---------------------------------------------------------CATEGORY---------------------------------------------
@@ -26,6 +26,10 @@ export interface Category {
     level: string;
     image: string;
     quizzes: string[];
+    _id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    __v: number;
 }
 
 export interface ServerError {
@@ -34,5 +38,5 @@ export interface ServerError {
 }
 export interface CategoriesRes {
     success: boolean;
-    categories: Category[];
+    categories: [];
 }
