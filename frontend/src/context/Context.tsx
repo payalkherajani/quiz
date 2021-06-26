@@ -8,6 +8,7 @@ export const CustomContext = React.createContext({} as ContextValue);
 const initialState: StateInterface = {
     user: {},
     categories: [],
+    selectedLevel: ''
 };
 
 export const Provider: React.FC = ({ children }): JSX.Element => {
