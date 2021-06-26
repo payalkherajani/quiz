@@ -3,6 +3,7 @@ import { Landing, Quizzes } from './screens';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context/Context';
+import { Footer } from './components';
 
 function App() {
   const { state } = useAppContext();
@@ -16,8 +17,8 @@ function App() {
           <Route path={`/${state.selectedLevel}/quizzess`} element={<Quizzes />} />
         </Routes>
       </Router>
-
       <ToastContainer />
+      <Footer />
     </Container>
   );
 }

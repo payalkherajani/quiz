@@ -23,10 +23,6 @@ const Landing = (): JSX.Element => {
                 <Col className="mb-3">
                     <Categories />
                 </Col>
-
-                <Col className="p-5 h-auto bg-primary mb-1" style={{ position: 'fixed', bottom: '0px' }}>
-                    <Footer />
-                </Col>
             </Row>
         </Container>
     );
