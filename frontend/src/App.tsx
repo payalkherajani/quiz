@@ -10,8 +10,6 @@ import { getAllCategories } from './services/categories.service';
 
 function App() {
   const { state, dispatch } = useAppContext();
-
-
   console.log({ state });
 
   useEffect(() => {
@@ -23,7 +21,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/landing" element={<Landing />} />
-          <Route path={`/levels/quizzess`} element={<Quizzes />} />
+          <Route path={`/quizzess/:id`} element={<Quizzes />} />
         </Routes>
       </Router>
       <ToastContainer />

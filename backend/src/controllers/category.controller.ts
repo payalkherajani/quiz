@@ -25,6 +25,23 @@ const getAllCategories = asyncHandler(async (req: Request, res: Response) => {
     res.status(200).json({ success: true, categories });
 });
 
+//@desc     GET ALL QUIZZESS OF CATEGORY
+//route     /api/category/:category_id
+//access    Public
 
+const getAllQuizzess = asyncHandler(async (req: Request, res: Response) => {
+    const { categoryId } = req.params;
+    if (!categoryId) {
+        return res.status(400).json({ success: false, message: 'Category ID is required' });
+    }
+    const category: Category | null = await Categories.findOne({ _id: categoryId });
 
-export { addNewCategory, getAllCategories };
+    if (category === null) {
+        return res.status(400).json({ success: false, message: 'No Category Found with this ID ' });
+    }
+
+    const { quizzes } = category;
+    res.status(200).json({ success: true, quizzes });
+});
+
+export { addNewCategory, getAllCategories, getAllQuizzess };

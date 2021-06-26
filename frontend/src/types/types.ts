@@ -1,11 +1,11 @@
-import { GET_ALL_CATEGORIES, SELECTED_LEVEL } from '../constants/constants';
+import { GET_ALL_CATEGORIES, SELECTED_CATERGORY } from '../constants/constants';
 
 // ----------------------------------------------------CONTEXT--------------------------------------------------
 
 export interface StateInterface {
     user: {};
     categories: Category[];
-    selectedLevel: string;
+    chooseCategoryDetails: { selectedCategory: string, selectedCategoryID: string; };
 }
 
 export interface ContextValue {
@@ -20,8 +20,8 @@ export type ActionsTypes =
         type: typeof GET_ALL_CATEGORIES,
         payload: { categories: Category[]; };
     } | {
-        type: typeof SELECTED_LEVEL,
-        payload: { selectedLevel: string; };
+        type: typeof SELECTED_CATERGORY,
+        payload: { selectedCategory: string, selectedCategoryID: string; };
     };
 
 //---------------------------------------------------------CATEGORY---------------------------------------------

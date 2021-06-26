@@ -1,10 +1,7 @@
 import { Jumbotron } from 'react-bootstrap';
 import { useAppContext } from '../context/Context';
 
-
-
-
-const Quizzes = () => {
+const Quizzes = (): JSX.Element => {
     const { state, dispatch } = useAppContext();
 
     return (

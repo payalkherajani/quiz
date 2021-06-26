@@ -1,4 +1,4 @@
-import { GET_ALL_CATEGORIES, SELECTED_LEVEL } from '../constants/constants';
+import { GET_ALL_CATEGORIES, SELECTED_CATERGORY } from '../constants/constants';
 import { StateInterface, ActionsTypes } from '../types/types';
 
 export const reducer = (state: StateInterface, action: ActionsTypes): StateInterface => {
@@ -6,8 +6,8 @@ export const reducer = (state: StateInterface, action: ActionsTypes): StateInter
         case GET_ALL_CATEGORIES:
             return { ...state, categories: action.payload.categories };
 
-        case SELECTED_LEVEL:
-            return { ...state, selectedLevel: action.payload.selectedLevel };
+        case SELECTED_CATERGORY:
+            return { ...state, chooseCategoryDetails: { selectedCategory: action.payload.selectedCategory, selectedCategoryID: action.payload.selectedCategoryID } };
         default:
             return state;
     }
