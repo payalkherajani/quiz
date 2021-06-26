@@ -1,5 +1,4 @@
-import React from 'react';
-import { Container, Row, Col, Button, Image, Badge, Card } from 'react-bootstrap';
+import { Row, Col, Button, Card } from 'react-bootstrap';
 import { SELECTED_LEVEL } from '../constants/constants';
 import { useAppContext } from '../context/Context';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +9,8 @@ const Categories = (): JSX.Element => {
     const { state: { categories }, dispatch } = useAppContext();
 
     const clickHandler = (level: string) => {
-        console.log("I am clicked");
         dispatch({ type: SELECTED_LEVEL, payload: { selectedLevel: level } });
-        navigate(`/${level}/quizzess`);
+        navigate(`/levels/quizzess`);
     };
 
     return (

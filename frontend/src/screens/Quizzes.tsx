@@ -1,11 +1,21 @@
-import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
+import { useAppContext } from '../context/Context';
+
+
 
 
 const Quizzes = () => {
+    const { state, dispatch } = useAppContext();
+
     return (
-        <div>
-            Quizzes
-        </div>
+        <>
+            <Jumbotron>
+                <h1>Let's Begin the Fun</h1>
+                <p>
+                    Are You Ready?
+                </p>
+            </Jumbotron>
+        </>
     );
 };
 

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, Image, Badge, Card } from 'react-bootstrap';
-import { Categories, Footer, Carousel } from '../components';
+import { useEffect } from 'react';
+import { Container, Row, Col, } from 'react-bootstrap';
+import { Categories, Carousel } from '../components';
 import { getAllCategories } from '../services/categories.service';
 import { useAppContext } from '../context/Context';
 

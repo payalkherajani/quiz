@@ -1,20 +1,29 @@
+import { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { Landing, Quizzes } from './screens';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context/Context';
 import { Footer } from './components';
+import { getAllCategories } from './services/categories.service';
+
 
 function App() {
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
+
+
   console.log({ state });
+
+  useEffect(() => {
+    getAllCategories(dispatch);
+  }, []);
 
   return (
     <Container fluid className="p-0 m-0">
       <Router>
         <Routes>
           <Route path="/landing" element={<Landing />} />
-          <Route path={`/${state.selectedLevel}/quizzess`} element={<Quizzes />} />
+          <Route path={`/levels/quizzess`} element={<Quizzes />} />
         </Routes>
       </Router>
       <ToastContainer />
