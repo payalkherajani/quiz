@@ -1,0 +1,139 @@
+{
+    "quizname": "Foodie...",
+    "category": "60bc591e5e124c1a687857d7",
+    "questions": [
+        {
+            "question": "What is the national dish of Barbados?",
+            "image": "https://cdn2.wanderlust.co.uk/media/1015/shutterstock_402878356.jpg?anchor=center&amp;mode=crop&amp;width=1410&amp;height=846&amp;rnd=132350499240000000",
+            "options": [
+                {
+                    "text": "Crab soup",
+                    "isRight": false 
+                },
+                {
+                    "text": "Cou cou and flying fish",
+                    "isRight": true 
+                },
+                {
+                    "text": "Jerk chicken",
+                    "isRight": false 
+                },
+                {
+                    "text": "Goat stew",
+                    "isRight": false 
+                }
+            ]
+        },
+		{
+            "question": "Which country produces the most corn?",
+            "image": "https://cdn2.wanderlust.co.uk/media/1014/shutterstock_530623666.jpg?anchor=center&amp;mode=crop&amp;width=1410&amp;height=846&amp;rnd=132350499050000000",
+            "options": [
+                {
+                    "text": "USA",
+                    "isRight": true 
+                },
+                {
+                    "text": "Chile",
+                    "isRight": false 
+                },
+                {
+                    "text": "Italy",
+                    "isRight": false 
+                },
+                {
+                    "text": "China",
+                    "isRight": false 
+                }
+            ]
+        },
+		{
+            "question": "What is the national dish of Indonesia?",
+            "image": "https://cdn2.wanderlust.co.uk/media/1028/shutterstock_550448668.jpg?anchor=center&amp;mode=crop&amp;width=1410&amp;height=846&amp;rnd=132350516370000000",
+            "options": [
+                {
+                    "text": "Nasi goreng",
+                    "isRight": true 
+                },
+                {
+                    "text": "Amok",
+                    "isRight": false 
+                },
+                {
+                    "text": "Bulgogi",
+                    "isRight": false 
+                },
+                {
+                    "text": "Ceviche",
+                    "isRight": false
+                }
+            ]
+        },
+		{
+            "question": "The national dish of Canada is poutine. But what are the dishes' three main ingredients?",
+            "image": "https://cdn2.wanderlust.co.uk/media/1020/shutterstock_1337922071.jpg?anchor=center&mode=crop&width=1410&height=846&rnd=132350505280000000",
+            "options": [
+                {
+                    "text": "Feta, chips and vinegar",
+                    "isRight": false
+                },
+                {
+                    "text": "Cheese curds, rice and gravy",
+                    "isRight": false 
+                },
+                {
+                    "text": "Chips, bacon and salsa",
+                    "isRight": false 
+                },
+                {
+                    "text": "Cheese curds, chips and gravy",
+                    "isRight": true
+                }
+            ]
+        },
+		{
+            "question": "Which country has the highest percentage of vegetarians?",
+            "image": "https://cdn2.wanderlust.co.uk/media/1039/shutterstock_420828667.jpg?anchor=center&amp;mode=crop&amp;width=1410&amp;height=846&amp;rnd=132350529750000000",
+            "options": [
+                {
+                    "text": "India",
+                    "isRight": true
+                },
+                {
+                    "text": "England",
+                    "isRight": false 
+                },
+                {
+                    "text": "USA",
+                    "isRight": true 
+                },
+                {
+                    "text": "Canada",
+                    "isRight": false
+                }
+            ]
+        },
+		{
+            "question": "Which country invented classic French fries?",
+            "image": "https://cdn2.wanderlust.co.uk/media/1038/shutterstock_262594517.jpg?anchor=center&mode=crop&width=1410&height=846&rnd=132350529610000000",
+            "options": [
+                {
+                    "text": "France, obviously",
+                    "isRight": false
+                },
+                {
+                    "text": "Belgium",
+                    "isRight": true 
+                },
+                {
+                    "text": "Germany",
+                    "isRight": false
+                },
+                {
+                    "text": "USA",
+                    "isRight": false
+                }
+            ]
+        }
+    ]
+
+}
