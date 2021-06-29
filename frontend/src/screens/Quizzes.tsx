@@ -5,12 +5,12 @@ import { useParams } from 'react-router';
 import { getQuizzess } from '../services/categories.service';
 
 const Quizzes = (): JSX.Element => {
-    const { state, dispatch } = useAppContext();
+    const { dispatch } = useAppContext();
     const { id } = useParams();
 
     useEffect(() => {
         getQuizzess(dispatch, id);
-    }, []);
+    }, [dispatch, id]);
 
     return (
         <>
