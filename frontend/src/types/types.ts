@@ -53,9 +53,13 @@ export interface CategoriesRes {
 
 export interface SelectedCategoryQuizzessRes {
     success: boolean;
-    quizzess: Puzzel[];
+    quizzes: Puzzel[];
 }
 
+export interface SelectedCategoryDetails {
+    success: boolean;
+    SingleCategory: Category;
+}
 export interface Option {
     text: string;
     isRight: boolean;

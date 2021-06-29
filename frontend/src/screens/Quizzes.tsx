@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { useAppContext } from '../context/Context';
 import { useParams } from 'react-router';
-import { getQuizzess } from '../services/categories.service';
+
+import {
+    getQuizzess,
+    getSingleCategoryDetails
+} from '../services/categories.service';
 
 const Quizzes = (): JSX.Element => {
     const { dispatch } = useAppContext();
@@ -10,6 +14,7 @@ const Quizzes = (): JSX.Element => {
 
     useEffect(() => {
         getQuizzess(dispatch, id);
+        getSingleCategoryDetails(dispatch, id);
     }, [dispatch, id]);
 
     return (

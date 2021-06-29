@@ -9,7 +9,8 @@ import { getAllCategories } from './services/categories.service';
 
 
 function App() {
-  const { dispatch } = useAppContext();
+  const { state, dispatch } = useAppContext();
+  console.log({ state });
 
   useEffect(() => {
     getAllCategories(dispatch);
