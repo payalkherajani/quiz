@@ -27,7 +27,7 @@ const getAllQuizzess = asyncHandler(async (req: Request, res: Response) => {
     if (!categoryId) {
         return res.status(400).json({ success: false, message: 'Category ID is required' });
     }
-    const category: Category | null = await Categories.findOne({ _id: categoryId });
+    const category: Category | null = await Categories.findOne({ _id: categoryId }).populate('quizzes', ['quizname', 'questions', 'category', 'totalscore']);
 
     if (category === null) {
         return res.status(400).json({ success: false, message: 'No Category Found with this ID ' });

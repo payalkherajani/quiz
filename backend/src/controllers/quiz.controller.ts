@@ -22,4 +22,10 @@ const addNewQuiz = asyncHandler(async (req: Request, res: Response) => {
 
 });
 
+// const getQuizByID = asyncHandler(async (req: Request, res: Response) => {
+//    const { id } = req.params
+//    const quiz = await Quiz.findOne({ _id: id })
+
+// })
+
 export { addNewQuiz };
