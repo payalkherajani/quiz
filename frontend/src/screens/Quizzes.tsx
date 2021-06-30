@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Jumbotron, Card, Row, Col } from 'react-bootstrap';
+import { Jumbotron, Card, Row, Col, Container, ListGroup } from 'react-bootstrap';
 import { useAppContext } from '../context/Context';
 import { useParams } from 'react-router';
 
@@ -20,16 +20,18 @@ const Quizzes = (): JSX.Element => {
     return (
         <>
             <Jumbotron>
-                <h1>Instructions</h1>
-                <ul>
-                    <li>There are total 6 questions, carrying equal weightage</li>
-                    <li>For every correct answer, you will be rewarded 1 point</li>
-                    <li>And Similary for every incorrect answer you will lose 1 point</li>
-                    <li>There, is no time limit</li>
-                </ul>
+                <Container className="text-center">
+                    <h1 className="mb-4">INSTRUCTIONS</h1>
+                    <ListGroup className="mt-2">
+                        <ListGroup.Item variant="secondary">There are total 6 questions, carrying equal weightage</ListGroup.Item>
+                        <ListGroup.Item variant="secondary">For every correct answer, you will be rewarded 1 point</ListGroup.Item>
+                        <ListGroup.Item variant="secondary">And Similary for every incorrect answer you will lose 1 point</ListGroup.Item>
+                        <ListGroup.Item variant="secondary">There, is no time limit</ListGroup.Item>
+                    </ListGroup>
+                </Container>
             </Jumbotron>
 
-            <Row>
+            <Row className="m-0">
                 {
                     [
                         'Primary',
