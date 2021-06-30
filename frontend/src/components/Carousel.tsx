@@ -1,10 +1,12 @@
-import React from 'react';
 import { Carousel, Image } from 'react-bootstrap';
-import c1 from '../assets/c1.jpg';
-import c2 from '../assets/c2.jpg';
-import question from '../assets/question.jpg';
 
-const images = [c1, c2, question];
+
+const images = [
+    "https://images.pexels.com/photos/209679/pexels-photo-209679.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=500&amp;w=500",
+    "https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "https://images.pexels.com/photos/776654/pexels-photo-776654.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    "https://images.pexels.com/photos/209728/pexels-photo-209728.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260"
+];
 
 const CarouselComponent = () => {
     return (
@@ -13,7 +15,7 @@ const CarouselComponent = () => {
                 images.map((item) => {
                     return <Carousel.Item>
                         <Image
-                            className="d-block w-100"
+                            className="d-block w-100 h-90"
                             src={item}
                             alt="slide"
                         />
