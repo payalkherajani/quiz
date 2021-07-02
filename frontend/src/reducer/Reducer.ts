@@ -1,4 +1,5 @@
 import {
+    ADD_SELECTED_QUIZ_QUESTIONS,
     GET_ALL_CATEGORIES,
     GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY,
     SELECTED_CATERGORY
@@ -20,6 +21,9 @@ export const reducer = (state: StateInterface, action: ActionsTypes): StateInter
 
         case GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY:
             return { ...state, selectedCategoryQuizzess: action.payload.selectedCategoryQuizzess };
+
+        case ADD_SELECTED_QUIZ_QUESTIONS:
+            return { ...state, selectedQuizQuestions: action.payload.selectedQuizQuestions };
 
         default:
             return state;

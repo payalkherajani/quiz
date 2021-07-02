@@ -1,4 +1,4 @@
-import { GET_ALL_CATEGORIES, GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY, SELECTED_CATERGORY } from '../constants/constants';
+import { ADD_SELECTED_QUIZ_QUESTIONS, GET_ALL_CATEGORIES, GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY, SELECTED_CATERGORY } from '../constants/constants';
 
 // ----------------------------------------------------CONTEXT--------------------------------------------------
 
@@ -7,6 +7,7 @@ export interface StateInterface {
     categories: Category[];
     chooseCategoryDetails: { selectedCategory: string, selectedCategoryID: string; };
     selectedCategoryQuizzess: Puzzel[];
+    selectedQuizQuestions: Question[];
 }
 
 export interface ContextValue {
@@ -28,6 +29,10 @@ export type ActionsTypes =
     | {
         type: typeof GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY,
         payload: { selectedCategoryQuizzess: Puzzel[]; };
+    }
+    | {
+        type: typeof ADD_SELECTED_QUIZ_QUESTIONS,
+        payload: { selectedQuizQuestions: Question[]; };
     };
 
 //---------------------------------------------------------CATEGORY---------------------------------------------

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Jumbotron, Card, Row, Col, Container, ListGroup, Button } from 'react-bootstrap';
 import { useAppContext } from '../context/Context';
 import { useParams } from 'react-router';
@@ -7,6 +7,8 @@ import {
     getQuizzess,
     getSingleCategoryDetails
 } from '../services/categories.service';
+import { ADD_SELECTED_QUIZ_QUESTIONS } from '../constants/constants';
+import { Question } from '../types/types';
 
 
 const Quizzes = (): JSX.Element => {
@@ -19,6 +21,9 @@ const Quizzes = (): JSX.Element => {
         getSingleCategoryDetails(dispatch, id);
     }, [dispatch, id]);
 
+    const playHandler = (ques: Question[]) => {
+        dispatch({ type: ADD_SELECTED_QUIZ_QUESTIONS, payload: { selectedQuizQuestions: ques } });
+    };
 
     return (
         <>
@@ -48,7 +53,7 @@ const Quizzes = (): JSX.Element => {
                                 <Card.Body>
                                     <Card.Title className="text-uppercase text-center">{data.quizname} </Card.Title>
                                     <Card.Body className="text-center">
-                                        <Button variant="light">PLAY</Button>
+                                        <Button variant="light" onClick={() => playHandler(data.questions)}>PLAY</Button>
                                     </Card.Body>
                                 </Card.Body>
                             </Card>
