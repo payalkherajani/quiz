@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import { Landing, Quizzes } from './screens';
+import { Landing, Quizzes, Play } from './screens';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context/Context';
@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/landing" element={<Landing />} />
           <Route path={`/quizzess/:id`} element={<Quizzes />} />
+          <Route path={`/play/:quizname`} element={<Play />} />
         </Routes>
       </Router>
       <ToastContainer />

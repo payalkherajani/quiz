@@ -13,7 +13,7 @@ const CarouselComponent = () => {
         <Carousel>
             {
                 images.map((item) => {
-                    return <Carousel.Item>
+                    return <Carousel.Item key={item}>
                         <Image
                             className="d-block w-100 h-90"
                             src={item}
