@@ -83,4 +83,5 @@ export interface Puzzel {
     category: string;
     questions: Question[];
     totalscore: number;
+    _id: string;
 }

@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/landing" element={<Landing />} />
           <Route path={`/quizzess/:id`} element={<Quizzes />} />
-          <Route path={`/play/:quizname`} element={<Play />} />
+          <Route path={`/play/:id`} element={<Play />} />
         </Routes>
       </Router>
       <ToastContainer />

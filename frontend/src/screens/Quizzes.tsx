@@ -9,20 +9,23 @@ import {
 } from '../services/categories.service';
 import { ADD_SELECTED_QUIZ_QUESTIONS } from '../constants/constants';
 import { Question } from '../types/types';
+import { useNavigate } from 'react-router-dom';
 
 
 const Quizzes = (): JSX.Element => {
     const { state, dispatch } = useAppContext();
     const { id } = useParams();
     const quizData = state.selectedCategoryQuizzess;
+    let navigate = useNavigate();
 
     useEffect(() => {
         getQuizzess(dispatch, id);
         getSingleCategoryDetails(dispatch, id);
     }, [dispatch, id]);
 
-    const playHandler = (ques: Question[]) => {
+    const playHandler = (ques: Question[], id: string) => {
         dispatch({ type: ADD_SELECTED_QUIZ_QUESTIONS, payload: { selectedQuizQuestions: ques } });
+        navigate(`/play/${id}`);
     };
 
     return (
@@ -43,7 +46,7 @@ const Quizzes = (): JSX.Element => {
             <Row className="m-0">
                 {
                     quizData && quizData.map((data) => (
-                        <Col key={data.quizname} className="mb-3">
+                        <Col key={data._id} className="mb-3">
                             <Card
                                 bg='primary'
                                 text='white'
@@ -53,7 +56,7 @@ const Quizzes = (): JSX.Element => {
                                 <Card.Body>
                                     <Card.Title className="text-uppercase text-center">{data.quizname} </Card.Title>
                                     <Card.Body className="text-center">
-                                        <Button variant="light" onClick={() => playHandler(data.questions)}>PLAY</Button>
+                                        <Button variant="light" onClick={() => playHandler(data.questions, data._id)}>PLAY</Button>
                                     </Card.Body>
                                 </Card.Body>
                             </Card>
