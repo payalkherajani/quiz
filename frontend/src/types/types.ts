@@ -1,4 +1,4 @@
-import { ADD_SELECTED_QUIZ_QUESTIONS, GET_ALL_CATEGORIES, GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY, SELECTED_CATERGORY } from '../constants/constants';
+import { ADD_SELECTED_QUIZ_QUESTIONS, GET_ALL_CATEGORIES, GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY, INCREASE_POINTER_OF_QUESTION, SELECTED_CATERGORY, UPDATE_TOTAL_SCORE } from '../constants/constants';
 
 // ----------------------------------------------------CONTEXT--------------------------------------------------
 
@@ -35,6 +35,14 @@ export type ActionsTypes =
     | {
         type: typeof ADD_SELECTED_QUIZ_QUESTIONS,
         payload: { selectedQuizQuestions: Question[]; };
+    }
+    | {
+        type: typeof UPDATE_TOTAL_SCORE,
+        payload: { score: number; };
+    } |
+    {
+        type: typeof INCREASE_POINTER_OF_QUESTION,
+        payload: { pointer: number; };
     };
 
 //---------------------------------------------------------CATEGORY---------------------------------------------

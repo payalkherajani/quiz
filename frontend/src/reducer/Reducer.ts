@@ -2,7 +2,9 @@ import {
     ADD_SELECTED_QUIZ_QUESTIONS,
     GET_ALL_CATEGORIES,
     GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY,
-    SELECTED_CATERGORY
+    INCREASE_POINTER_OF_QUESTION,
+    SELECTED_CATERGORY,
+    UPDATE_TOTAL_SCORE
 } from '../constants/constants';
 
 import {
@@ -24,6 +26,12 @@ export const reducer = (state: StateInterface, action: ActionsTypes): StateInter
 
         case ADD_SELECTED_QUIZ_QUESTIONS:
             return { ...state, selectedQuizQuestions: action.payload.selectedQuizQuestions };
+
+        case UPDATE_TOTAL_SCORE:
+            return { ...state, totalscore: state.totalscore + action.payload.score };
+
+        case INCREASE_POINTER_OF_QUESTION:
+            return { ...state, pointerOnQuestionNumber: action.payload.pointer };
 
         default:
             return state;
