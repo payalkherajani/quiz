@@ -10,7 +10,9 @@ const initialState: StateInterface = {
     categories: [],
     chooseCategoryDetails: { selectedCategory: '', selectedCategoryID: '' },
     selectedCategoryQuizzess: [],
-    selectedQuizQuestions: []
+    selectedQuizQuestions: [],
+    pointerOnQuestionNumber: 0,
+    totalscore: 0
 };
 
 export const Provider: React.FC = ({ children }): JSX.Element => {

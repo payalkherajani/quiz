@@ -8,6 +8,8 @@ export interface StateInterface {
     chooseCategoryDetails: { selectedCategory: string, selectedCategoryID: string; };
     selectedCategoryQuizzess: Puzzel[];
     selectedQuizQuestions: Question[];
+    pointerOnQuestionNumber: number;
+    totalscore: number;
 }
 
 export interface ContextValue {
@@ -68,6 +70,7 @@ export interface SelectedCategoryDetails {
 export interface Option {
     text: string;
     isRight: boolean;
+    _id: string;
 }
 
 export interface Question {

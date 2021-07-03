@@ -23,6 +23,7 @@ const Quizzes = (): JSX.Element => {
         getSingleCategoryDetails(dispatch, id);
     }, [dispatch, id]);
 
+
     const playHandler = (ques: Question[], id: string) => {
         dispatch({ type: ADD_SELECTED_QUIZ_QUESTIONS, payload: { selectedQuizQuestions: ques } });
         navigate(`/play/${id}`);

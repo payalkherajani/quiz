@@ -12,6 +12,7 @@ function App() {
   const { state, dispatch } = useAppContext();
   console.log({ state });
 
+
   useEffect(() => {
     getAllCategories(dispatch);
   }, []);
