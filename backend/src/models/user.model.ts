@@ -1,11 +1,17 @@
 import mongoose, { Schema } from 'mongoose';
 import { Puzzel } from './quiz.model';
 
-interface UserFields {
+
+export interface ScoreType {
+    quiz: Puzzel;
+    score: number;
+}
+
+export interface UserFields {
     name: string;
     email: string;
     password: string;
-    quizplayed: Puzzel[];
+    quizplayed: ScoreType[];
 }
 
 const userSchema = new Schema<UserFields>(
@@ -22,14 +28,21 @@ const userSchema = new Schema<UserFields>(
             type: String,
             required: true
         },
-        quizPlayed: {
-            quiz: [
-                {
+        quizPlayed: [
+            {
+                quiz: {
                     type: Schema.Types.ObjectId,
                     ref: 'quiz'
+                },
+
+                score: {
+                    type: String,
+                    default: 0
                 }
-            ]
-        }
+            },
+
+        ]
+
     },
 
     {
