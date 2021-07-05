@@ -1,4 +1,4 @@
-import { request, Request, Response } from "express";
+import { Request, Response } from "express";
 import { asyncHandler } from "../middlewares";
 import User from "../models/user.model";
 import { UserFields } from "../models/user.model";
@@ -34,8 +34,26 @@ const loginUser = asyncHandler(async (req: Request, res: Response) => {
     }
 });
 
-const UpdateScore = asyncHandler(async (req: Request, res: Response) => {
 
+
+const getUserByID = asyncHandler(async (req: Request, res: Response) => {
+
+    const { id } = req.params;
+    const user = await User.findOne({ _id: id });
+    if (!user) {
+        return res.status(400).json({ success: false, message: 'No User Found' });
+    }
+    return res.status(200).json({ success: true, user });
 });
 
-export { registerNewUser, loginUser, UpdateScore };
+
+const UpdateScore = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    const user = await User.findOne({ _id: id });
+    if (!user) {
+        return res.status(400).json({ success: false, message: 'No User Found' });
+    }
+});
+
+export { registerNewUser, loginUser, UpdateScore, getUserByID };
