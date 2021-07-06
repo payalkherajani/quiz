@@ -9,7 +9,6 @@ import {
 import que from '../assets/que.svg';
 import { Navbar } from '../components';
 
-
 const Login = () => {
     return (
         <div>
@@ -31,17 +30,17 @@ const Login = () => {
                                     />
                                 </Col>
                                 <Col lg="8" md="8">
-                                    <h1>LOGIN</h1>
+                                    <h1 className="mb-4">LOGIN</h1>
                                     <Form>
-                                        <Form.Group>
+                                        <Form.Group className="mb-4">
                                             <Form.Label>Email address</Form.Label>
                                             <Form.Control type="email" placeholder="Enter email" />
                                         </Form.Group>
-                                        <Form.Group>
+                                        <Form.Group className="mb-4">
                                             <Form.Label>Password</Form.Label>
                                             <Form.Control type="password" placeholder="Password" />
                                         </Form.Group>
-                                        <Button type="submit" className="pr-4 pl-4 mb-2">Login</Button>
+                                        <Button type="submit" className="pr-4 pl-4 mb-4">LOGIN</Button>
                                         <p>Don't have an account? <span>REGISTER</span></p>
                                     </Form>
                                 </Col>
@@ -49,12 +48,7 @@ const Login = () => {
                         </Container>
                     </Col>
                 </Row>
-
             </Container>
-
-
-
-
         </div>
     );
 };
