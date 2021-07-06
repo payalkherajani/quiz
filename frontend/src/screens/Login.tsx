@@ -3,12 +3,12 @@ import {
     Row,
     Col,
     Image,
-    Navbar,
     Form,
     Button
 } from 'react-bootstrap';
 import que from '../assets/que.svg';
-import puzzel from '../assets/puzzel2.png';
+import { Navbar } from '../components';
+
 
 const Login = () => {
     return (
@@ -16,18 +16,7 @@ const Login = () => {
             <Container fluid className="p-0">
                 <Row className="flex-column m-0">
                     <Col className="p-0 mb-5">
-                        <Navbar bg="primary" variant="dark" className="p-2">
-                            <Navbar.Brand href="#home">
-                                <Image
-                                    alt=""
-                                    src={puzzel}
-                                    width="40"
-                                    height="40"
-                                    className="d-inline-block align-top"
-                                />{' '}
-                                PAHELI
-                            </Navbar.Brand>
-                        </Navbar>
+                        <Navbar />
                     </Col>
 
                     <Col className="mb-5">
