@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import que from '../assets/que.svg';
 import { Navbar } from '../components';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -41,7 +42,7 @@ const Login = () => {
                                             <Form.Control type="password" placeholder="Password" />
                                         </Form.Group>
                                         <Button type="submit" className="pr-4 pl-4 mb-4">LOGIN</Button>
-                                        <p>Don't have an account? <span>REGISTER</span></p>
+                                        <p>Don't have an account? <Link to='/register'> <span style={{ textDecoration: 'underline' }}>REGISTER</span></Link></p>
                                     </Form>
                                 </Col>
                             </Row>
