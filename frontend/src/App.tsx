@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import { Landing, Quizzes, Play, Login } from './screens';
+import { Landing, Quizzes, Play, Login, Register, NoPageFound } from './screens';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context/Context';
@@ -22,9 +22,11 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/landing' element={<Landing />} />
           <Route path={`/quizzess/:id`} element={<Quizzes />} />
           <Route path={`/play/:id`} element={<Play />} />
+          <Route path="*" element={<NoPageFound />} />
         </Routes>
       </Router>
       <ToastContainer />
