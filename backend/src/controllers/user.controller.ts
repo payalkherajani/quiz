@@ -3,14 +3,15 @@ import { asyncHandler } from "../middlewares";
 import User from "../models/user.model";
 import { UserFields } from "../models/user.model";
 import { generateToken } from "../utlis/generateToken";
+import bcrypt from 'bcrypt';
 
 const registerNewUser = asyncHandler(async (req: Request, res: Response) => {
     const { name, email, password }: UserFields = req.body;
-    //hashpassword and then store in DB
+    const hashedPassword = bcrypt.hashSync(password, 10);
     const user = new User({
         name,
         email,
-        password,
+        password: hashedPassword,
         quizPlayed: []
     });
     await user.save();
@@ -22,8 +23,8 @@ const loginUser = asyncHandler(async (req: Request, res: Response) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user) {
-        // unhash the password
-        if (password === user.password) {
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+        if (isPasswordMatch) {
             const data = { id: user._id };
             const token = generateToken(data);
             return res.status(200).json({ success: true, token });
@@ -33,7 +34,6 @@ const loginUser = asyncHandler(async (req: Request, res: Response) => {
         }
     }
 });
-
 
 
 const getUserByID = asyncHandler(async (req: Request, res: Response) => {
