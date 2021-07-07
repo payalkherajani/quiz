@@ -21,7 +21,7 @@ const Login = () => {
 
                     <Col className="mb-5">
                         <Container fluid>
-                            <Row className="justify-content-center align-items-center" style={{ gap: '2rem' }}>
+                            <Row className="justify-content-center align-items-center">
                                 <Col lg="4" md="4">
                                     <Image
                                         src={que}
