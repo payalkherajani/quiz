@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/Context';
 import { Button } from 'react-bootstrap';
 import { INCREASE_POINTER_OF_QUESTION, UPDATE_TOTAL_SCORE } from '../constants/constants';
+import { Row, Col, Image, ListGroup } from 'react-bootstrap';
+import { Navbar } from '../components';
 
 const Play = () => {
 
     let navigate = useNavigate();
 
     const { state, dispatch } = useAppContext();
-    const [show, setShow] = useState(false);
     const [revealAnswer, setRevealAnswer] = useState(false);
 
     const { selectedQuizQuestions, pointerOnQuestionNumber } = state;
@@ -34,33 +35,56 @@ const Play = () => {
         setRevealAnswer(false);
     };
 
-    const showScore = () => {
-        setShow(true);
+    const navigateToMyScores = () => {
+        navigate('/');   //change to user Scores
     };
-
     return (
-        <div>
-            <div>{selectedQuizQuestions.length > 0 && selectedQuizQuestions.length > pointerOnQuestionNumber ? selectedQuizQuestions[pointerOnQuestionNumber].question : null}</div>
-            <ul>
-                {selectedQuizQuestions.length > 0 && selectedQuizQuestions.length > pointerOnQuestionNumber ? selectedQuizQuestions[pointerOnQuestionNumber].options.map((option) => (
+        <>
+            <Navbar />
+            <Row className="p-2 justify-content-center align-items-center m-0" style={{ minHeight: '100vh' }}>
+                <Col lg="6">
+                    <Image
+                        src={selectedQuizQuestions.length > 0 && selectedQuizQuestions.length > pointerOnQuestionNumber ? (selectedQuizQuestions[pointerOnQuestionNumber].image) : undefined}
+                        alt="game" style={{ width: '100%' }}
+                    />
+                </Col>
+                <Col lg="6">
 
-                    <li
-                        key={option._id}
-                        onClick={(e) => checkmyAnswer(e, option.isRight)}
-                        style={revealAnswer === true ? { backgroundColor: option.isRight ? "green" : "red" } : { backgroundColor: "white" }}
-                    >
-                        {option.text}
-                    </li>
-                )) : null
+                    <Row className="flex-column">
 
-                }
-            </ul>
-            {pointerOnQuestionNumber === 6 ? <Button onClick={showScore}> Check Your Score </Button> : <Button onClick={nextQuestion}>Next</Button>}
+                        <Col className="pl-5">
+                            <strong>
+                                Question: {pointerOnQuestionNumber + 1} {selectedQuizQuestions.length > 0 && selectedQuizQuestions.length > pointerOnQuestionNumber ? selectedQuizQuestions[pointerOnQuestionNumber].question : null}
+                            </strong>
+                        </Col>
 
-            {
-                show === true ? (`Your Score is ${state.totalscore}`) : null
-            }
-        </div>
+
+                        <Col>
+                            <ListGroup className="p-5">
+                                {selectedQuizQuestions.length > 0 && selectedQuizQuestions.length > pointerOnQuestionNumber ? selectedQuizQuestions[pointerOnQuestionNumber].options.map((option) => (
+
+                                    <Button
+                                        variant="info"
+                                        className="mb-2 p-3"
+                                        key={option._id}
+                                        onClick={(e) => checkmyAnswer(e, option.isRight)}
+                                        style={revealAnswer === true ? { backgroundColor: option.isRight ? "green" : "red" } : { backgroundColor: "white" }}
+                                    >
+                                        {option.text}
+                                    </Button>
+                                )) : null
+
+                                }
+                            </ListGroup>
+                        </Col>
+                        {pointerOnQuestionNumber === 5 ? <Button onClick={navigateToMyScores}> Check Your Score </Button> : <Button onClick={nextQuestion}>Next</Button>}
+
+
+                    </Row>
+                </Col>
+            </Row>
+        </>
+
     );
 };
 
