@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Dispatch } from 'react';
 
 const registerNewUser = async (data: { name: string; email: string; password: string; }) => {
     try {
@@ -12,4 +11,15 @@ const registerNewUser = async (data: { name: string; email: string; password: st
     }
 };
 
-export { registerNewUser };
+const userLogin = async (data: { email: string; password: string; }) => {
+    try {
+        const { email, password } = data;
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/user/login`, {
+            email, password
+        });
+        return response;
+    } catch (err) {
+        return err.response;
+    }
+};
+export { registerNewUser, userLogin };

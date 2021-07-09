@@ -9,9 +9,13 @@ import {
 } from 'react-bootstrap';
 import que from '../assets/que.svg';
 import { Navbar } from '../components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { userLogin } from '../services/users.service';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -25,9 +29,18 @@ const Login = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const onFormSubmit = (e: React.FormEvent) => {
+    const onFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log({ formData });
+        const response = await userLogin(formData);
+        if (response.status === 200) {
+            const { data: { token } } = response;
+            localStorage.setItem('token', token);
+            navigate('/landing');
+        }
+        else {
+            const errorMessage = response.data.message;
+            toast.error(errorMessage);
+        }
     };
 
     return (

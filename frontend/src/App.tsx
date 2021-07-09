@@ -16,7 +16,9 @@ function App() {
 
 
   useEffect(() => {
-    getAllCategories(dispatch);
+    if (localStorage.getItem('token')) {
+      getAllCategories(dispatch);
+    }
   }, []);
 
   return (
