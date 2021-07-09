@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from '../components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import {
     Container,
     Row,
@@ -51,103 +51,106 @@ const Register = (): JSX.Element => {
     };
 
     return (
-        <div>
-            <Container fluid className="p-0">
-                <Row className="flex-column m-0">
-                    <Col className="p-0 mb-5">
-                        <Navbar />
-                    </Col>
+        localStorage.getItem('token') ? (<Navigate to='/landing' />) : (
+            <div>
+                <Container fluid className="p-0">
+                    <Row className="flex-column m-0">
+                        <Col className="p-0 mb-5">
+                            <Navbar />
+                        </Col>
 
-                    <Col className="mb-5">
-                        <Container fluid>
+                        <Col className="mb-5">
+                            <Container fluid>
 
-                            <Row className="justify-content-center align-items-center">
-                                <Col lg="8" md="8">
-                                    <h1 className="mb-4">REGISTER</h1>
+                                <Row className="justify-content-center align-items-center">
+                                    <Col lg="8" md="8">
+                                        <h1 className="mb-4">REGISTER</h1>
 
-                                    <Form onSubmit={onFormSubmit}>
+                                        <Form onSubmit={onFormSubmit}>
 
-                                        <Form.Group className="mb-4">
-                                            <Form.Label>Name</Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Enter name"
-                                                value={name}
-                                                name="name"
-                                                onChange={onChangeHandler}
-                                                required
+                                            <Form.Group className="mb-4">
+                                                <Form.Label>Name</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Enter name"
+                                                    value={name}
+                                                    name="name"
+                                                    onChange={onChangeHandler}
+                                                    required
 
-                                            />
-                                        </Form.Group>
+                                                />
+                                            </Form.Group>
 
-                                        <Form.Group className="mb-4">
-                                            <Form.Label>Email address</Form.Label>
-                                            <Form.Control
-                                                type="email"
-                                                placeholder="Enter email"
-                                                value={email}
-                                                name="email"
-                                                onChange={onChangeHandler}
-                                                required
-                                            />
-                                        </Form.Group>
+                                            <Form.Group className="mb-4">
+                                                <Form.Label>Email address</Form.Label>
+                                                <Form.Control
+                                                    type="email"
+                                                    placeholder="Enter email"
+                                                    value={email}
+                                                    name="email"
+                                                    onChange={onChangeHandler}
+                                                    required
+                                                />
+                                            </Form.Group>
 
-                                        <Form.Group className="mb-4">
-                                            <Form.Label>Password</Form.Label>
-                                            <Form.Control
-                                                type="password"
-                                                placeholder="Password"
-                                                value={password}
-                                                name="password"
-                                                onChange={onChangeHandler}
-                                                required
-                                            />
-                                        </Form.Group>
+                                            <Form.Group className="mb-4">
+                                                <Form.Label>Password</Form.Label>
+                                                <Form.Control
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    value={password}
+                                                    name="password"
+                                                    onChange={onChangeHandler}
+                                                    required
+                                                />
+                                            </Form.Group>
 
-                                        <Form.Group className="mb-4">
-                                            <Form.Label>Confirm Password</Form.Label>
-                                            <Form.Control
-                                                type="password"
-                                                placeholder="Password"
-                                                value={confirmpassword}
-                                                name="confirmpassword"
-                                                onChange={onChangeHandler}
-                                                required
-                                            />
-                                        </Form.Group>
+                                            <Form.Group className="mb-4">
+                                                <Form.Label>Confirm Password</Form.Label>
+                                                <Form.Control
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    value={confirmpassword}
+                                                    name="confirmpassword"
+                                                    onChange={onChangeHandler}
+                                                    required
+                                                />
+                                            </Form.Group>
 
-                                        <Button
-                                            type="submit"
-                                            className="pr-4 pl-4 mb-4"
-                                        >
-                                            REGISTER
-                                        </Button>
+                                            <Button
+                                                type="submit"
+                                                className="pr-4 pl-4 mb-4"
+                                            >
+                                                REGISTER
+                                            </Button>
 
-                                        <p>
-                                            Already have an account?
-                                            <Link to='/'>
-                                                <span style={{ textDecoration: 'underline' }}>
-                                                    LOGIN
-                                                </span>
-                                            </Link>
-                                        </p>
-                                    </Form>
-                                </Col>
+                                            <p>
+                                                Already have an account?
+                                                <Link to='/'>
+                                                    <span style={{ textDecoration: 'underline' }}>
+                                                        LOGIN
+                                                    </span>
+                                                </Link>
+                                            </p>
+                                        </Form>
+                                    </Col>
 
-                                <Col lg="4" md="4">
-                                    <Image
-                                        src={addUser}
-                                        alt="login-image"
-                                        className="login-question-image"
+                                    <Col lg="4" md="4">
+                                        <Image
+                                            src={addUser}
+                                            alt="login-image"
+                                            className="login-question-image"
 
-                                    />
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                                        />
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        )
+
     );
 };
 
