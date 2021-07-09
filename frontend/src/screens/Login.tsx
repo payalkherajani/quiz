@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
     Container,
     Row,
@@ -11,6 +12,24 @@ import { Navbar } from '../components';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const { email, password } = formData;
+
+    const onFormChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const onFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log({ formData });
+    };
+
     return (
         <div>
             <Container fluid className="p-0">
@@ -27,20 +46,38 @@ const Login = () => {
                                         src={que}
                                         alt="login-image"
                                         className="login-question-image"
-
                                     />
                                 </Col>
                                 <Col lg="8" md="8">
+
                                     <h1 className="mb-4">LOGIN</h1>
-                                    <Form>
+
+                                    <Form onSubmit={onFormSubmit}>
+
                                         <Form.Group className="mb-4">
                                             <Form.Label>Email address</Form.Label>
-                                            <Form.Control type="email" placeholder="Enter email" />
+                                            <Form.Control
+                                                type="email"
+                                                placeholder="Enter email"
+                                                name="email"
+                                                value={email}
+                                                onChange={onFormChangeHandler}
+                                                required
+                                            />
                                         </Form.Group>
+
                                         <Form.Group className="mb-4">
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control type="password" placeholder="Password" />
+                                            <Form.Control
+                                                type="password"
+                                                placeholder="Password"
+                                                name="password"
+                                                value={password}
+                                                onChange={onFormChangeHandler}
+                                                required
+                                            />
                                         </Form.Group>
+
                                         <Button type="submit" className="pr-4 pl-4 mb-4">LOGIN</Button>
                                         <p>Don't have an account? <Link to='/register'> <span style={{ textDecoration: 'underline' }}>REGISTER</span></Link></p>
                                     </Form>
