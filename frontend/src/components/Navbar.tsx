@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navbar, Image, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import puzzel from '../assets/puzzel2.png';
