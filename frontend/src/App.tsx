@@ -3,9 +3,11 @@ import { Container } from 'react-bootstrap';
 import { Landing, Quizzes, Play, Login, Register, NoPageFound } from './screens';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAppContext } from './context/Context';
 import { Footer } from './components';
 import { getAllCategories } from './services/categories.service';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 function App() {
@@ -23,9 +25,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/landing' element={<Landing />} />
-          <Route path={`/quizzess/:id`} element={<Quizzes />} />
-          <Route path={`/play/:id`} element={<Play />} />
+          <PrivateRoute path='/landing' element={<Landing />} />
+          <PrivateRoute path={`/quizzess/:id`} element={<Quizzes />} />
+          <PrivateRoute path={`/play/:id`} element={<Play />} />
           <Route path="*" element={<NoPageFound />} />
         </Routes>
       </Router>

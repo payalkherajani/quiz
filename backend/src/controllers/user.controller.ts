@@ -7,15 +7,24 @@ import bcrypt from 'bcrypt';
 
 const registerNewUser = asyncHandler(async (req: Request, res: Response) => {
     const { name, email, password }: UserFields = req.body;
-    const hashedPassword = bcrypt.hashSync(password, 10);
-    const user = new User({
-        name,
-        email,
-        password: hashedPassword,
-        quizPlayed: []
-    });
-    await user.save();
-    return res.status(200).json({ success: true, user });
+
+    const userAlreadyExistswithEmail = await User.findOne({ email });
+
+    if (userAlreadyExistswithEmail === null) {
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        const user = new User({
+            name,
+            email,
+            password: hashedPassword,
+            quizPlayed: []
+        });
+        await user.save();
+        return res.status(200).json({ success: true, user });
+    }
+    else {
+        return res.status(400).json({ success: false, message: 'User Already Exists with this email' });
+    }
+
 });
 
 
