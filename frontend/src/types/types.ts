@@ -1,4 +1,12 @@
-import { ADD_SELECTED_QUIZ_QUESTIONS, GET_ALL_CATEGORIES, GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY, INCREASE_POINTER_OF_QUESTION, SELECTED_CATERGORY, UPDATE_TOTAL_SCORE } from '../constants/constants';
+import {
+    ADD_SELECTED_QUIZ_QUESTIONS,
+    GET_ALL_CATEGORIES,
+    GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY,
+    INCREASE_POINTER_OF_QUESTION,
+    SELECTED_CATERGORY,
+    SET_LOGGED_IN_USER_DETAILS,
+    UPDATE_TOTAL_SCORE
+} from '../constants/constants';
 
 // ----------------------------------------------------CONTEXT--------------------------------------------------
 
@@ -43,6 +51,10 @@ export type ActionsTypes =
     {
         type: typeof INCREASE_POINTER_OF_QUESTION,
         payload: { pointer: number; };
+    } |
+    {
+        type: typeof SET_LOGGED_IN_USER_DETAILS,
+        payload: { user: User; };
     };
 
 //---------------------------------------------------------CATEGORY---------------------------------------------
@@ -71,6 +83,11 @@ export interface SelectedCategoryQuizzessRes {
     quizzes: Puzzel[];
 }
 
+export interface getUserDetailsRes {
+    success: boolean;
+    user: User;
+}
+
 export interface SelectedCategoryDetails {
     success: boolean;
     SingleCategory: Category;
@@ -95,4 +112,9 @@ export interface Puzzel {
     questions: Question[];
     totalscore: number;
     _id: string;
+}
+
+export interface User {
+    name: string;
+    email: string;
 }

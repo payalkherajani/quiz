@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { Dispatch } from 'react';
+import { toast } from 'react-toastify';
+import { ActionsTypes } from '../types/types';
 
 const registerNewUser = async (data: { name: string; email: string; password: string; }) => {
     try {
@@ -22,4 +25,14 @@ const userLogin = async (data: { email: string; password: string; }) => {
         return err.response;
     }
 };
-export { registerNewUser, userLogin };
+
+const getUserDetails = async (dispatch: Dispatch<ActionsTypes>) => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/user`, { headers: { 'x-auth-token': localStorage.getItem('token') } });
+        console.log({ response });
+    } catch (err) {
+        const errorMessage = err.response.data.message;
+        toast.error(errorMessage);
+    }
+};
+export { registerNewUser, userLogin, getUserDetails };
