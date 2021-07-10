@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { Dispatch } from 'react';
 import { toast } from 'react-toastify';
-import { ActionsTypes } from '../types/types';
+import { SET_LOGGED_IN_USER_DETAILS } from '../constants/constants';
+import { ActionsTypes, getUserDetailsRes, User } from '../types/types';
 
 const registerNewUser = async (data: { name: string; email: string; password: string; }) => {
     try {
@@ -28,8 +29,13 @@ const userLogin = async (data: { email: string; password: string; }) => {
 
 const getUserDetails = async (dispatch: Dispatch<ActionsTypes>) => {
     try {
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/user`, { headers: { 'x-auth-token': localStorage.getItem('token') } });
-        console.log({ response });
+        const response = await axios.get<getUserDetailsRes>(`${process.env.REACT_APP_SERVER_URL}/api/user`, { headers: { 'x-auth-token': localStorage.getItem('token') } });
+        const { user } = response.data;
+        const userObject: User = {
+            name: user.name,
+            email: user.email
+        };
+        dispatch({ type: SET_LOGGED_IN_USER_DETAILS, payload: { user: userObject } });
     } catch (err) {
         const errorMessage = err.response.data.message;
         toast.error(errorMessage);

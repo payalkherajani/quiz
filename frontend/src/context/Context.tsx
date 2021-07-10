@@ -6,7 +6,10 @@ export const CustomContext = React.createContext({} as ContextValue);
 
 
 const initialState: StateInterface = {
-    user: {},
+    user: {
+        name: '',
+        email: ''
+    },
     categories: [],
     chooseCategoryDetails: { selectedCategory: '', selectedCategoryID: '' },
     selectedCategoryQuizzess: [],

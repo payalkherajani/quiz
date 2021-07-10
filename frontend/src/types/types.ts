@@ -11,7 +11,10 @@ import {
 // ----------------------------------------------------CONTEXT--------------------------------------------------
 
 export interface StateInterface {
-    user: {};
+    user: {
+        name: string;
+        email: string;
+    };
     categories: Category[];
     chooseCategoryDetails: { selectedCategory: string, selectedCategoryID: string; };
     selectedCategoryQuizzess: Puzzel[];

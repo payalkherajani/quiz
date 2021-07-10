@@ -4,6 +4,7 @@ import {
     GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY,
     INCREASE_POINTER_OF_QUESTION,
     SELECTED_CATERGORY,
+    SET_LOGGED_IN_USER_DETAILS,
     UPDATE_TOTAL_SCORE
 } from '../constants/constants';
 
@@ -32,6 +33,9 @@ export const reducer = (state: StateInterface, action: ActionsTypes): StateInter
 
         case INCREASE_POINTER_OF_QUESTION:
             return { ...state, pointerOnQuestionNumber: action.payload.pointer };
+
+        case SET_LOGGED_IN_USER_DETAILS:
+            return { ...state, user: action.payload.user };
 
         default:
             return state;
