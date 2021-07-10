@@ -14,6 +14,7 @@ export interface StateInterface {
     user: {
         name: string;
         email: string;
+        quizPlayed: Puzzel[];
     };
     categories: Category[];
     chooseCategoryDetails: { selectedCategory: string, selectedCategoryID: string; };
@@ -91,6 +92,11 @@ export interface getUserDetailsRes {
     user: User;
 }
 
+export interface UpdateScoreResponse {
+    success: boolean;
+    user: User;
+}
+
 export interface SelectedCategoryDetails {
     success: boolean;
     SingleCategory: Category;
@@ -120,4 +126,5 @@ export interface Puzzel {
 export interface User {
     name: string;
     email: string;
+    quizPlayed: Puzzel[];
 }

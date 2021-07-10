@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'react';
 import { toast } from 'react-toastify';
 import { SET_LOGGED_IN_USER_DETAILS } from '../constants/constants';
-import { ActionsTypes, getUserDetailsRes, User } from '../types/types';
+import { ActionsTypes, getUserDetailsRes, UpdateScoreResponse, User } from '../types/types';
 
 const registerNewUser = async (data: { name: string; email: string; password: string; }) => {
     try {
@@ -33,7 +33,8 @@ const getUserDetails = async (dispatch: Dispatch<ActionsTypes>) => {
         const { user } = response.data;
         const userObject: User = {
             name: user.name,
-            email: user.email
+            email: user.email,
+            quizPlayed: user.quizPlayed
         };
         dispatch({ type: SET_LOGGED_IN_USER_DETAILS, payload: { user: userObject } });
     } catch (err) {
@@ -41,4 +42,14 @@ const getUserDetails = async (dispatch: Dispatch<ActionsTypes>) => {
         toast.error(errorMessage);
     }
 };
-export { registerNewUser, userLogin, getUserDetails };
+
+const updateUserScore = async (totalscore: number, id: any) => {
+    try {
+        const response = await axios.post<UpdateScoreResponse>(`${process.env.REACT_APP_SERVER_URL}/api/user/score`, { 'quizId': id.id, 'score': totalscore }, { headers: { 'x-auth-token': localStorage.getItem('token') } });
+        return response;
+    } catch (err) {
+        return err.response;
+    }
+};
+
+export { registerNewUser, userLogin, getUserDetails, updateUserScore };

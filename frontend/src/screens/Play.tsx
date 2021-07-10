@@ -1,14 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, useRef, ParamHTMLAttributes } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAppContext } from '../context/Context';
 import { Button } from 'react-bootstrap';
-import { INCREASE_POINTER_OF_QUESTION, UPDATE_TOTAL_SCORE } from '../constants/constants';
+import { INCREASE_POINTER_OF_QUESTION, UPDATE_TOTAL_SCORE, UPDATE_USER_SCORE } from '../constants/constants';
 import { Row, Col, Image, ListGroup } from 'react-bootstrap';
 import { Navbar } from '../components';
+import { updateUserScore } from '../services/users.service';
+import { toast } from 'react-toastify';
 
 const Play = () => {
 
     let navigate = useNavigate();
+    const id = useParams();
 
     const { state, dispatch } = useAppContext();
     const [revealAnswer, setRevealAnswer] = useState(false);
@@ -35,9 +38,15 @@ const Play = () => {
         setRevealAnswer(false);
     };
 
-    const navigateToMyScores = () => {
-        //update user score and then redirect to that page and show all history of played games and scores
-        navigate('/score');   //change to user Scores
+    const navigateToMyScores = async () => {
+        const response = await updateUserScore(state.totalscore, id);
+        if (response?.status! === 200) {
+            navigate('/score');
+        }
+        else {
+            const errorMessage = response.data.message;
+            toast.error(errorMessage);
+        }
     };
     return (
         <>
