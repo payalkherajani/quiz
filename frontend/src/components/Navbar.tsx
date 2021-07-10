@@ -1,7 +1,8 @@
 import { Navbar, Image, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import puzzel from '../assets/puzzel2.png';
 import { useAppContext } from '../context/Context';
+
 
 const NavbarComponent = () => {
 
@@ -28,6 +29,7 @@ const NavbarComponent = () => {
                     <strong>PAHELI</strong>
                 </Navbar.Brand>
                 <h1 className="text-white">Welcome {state.user.name}</h1>
+                <h4> <Link to='/score' className="text-white">My Scores</Link></h4>
                 <Button onClick={logoutUser}><i className="fas fa-sign-out-alt"></i></Button>
             </Navbar>
         ) : (

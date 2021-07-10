@@ -54,14 +54,16 @@ const Score = () => {
                             </thead>
                             <tbody>
                                 {
-                                    scoreDetailsOfUser.map((s: any, index: number) => {
-                                        return <tr>
-                                            <td>{index + 1}</td>
-                                            <td>{s?.quiz.category.level}</td>
-                                            <td>{s?.quiz.quizname}</td>
-                                            <td>{s.score}</td>
-                                        </tr>;
-                                    })
+                                    scoreDetailsOfUser.length === 0 ? (<tr>No Data</tr>) : (
+                                        scoreDetailsOfUser.map((s: any, index: number) => {
+                                            return <tr>
+                                                <td>{index + 1}</td>
+                                                <td>{s?.quiz.category.level}</td>
+                                                <td>{s?.quiz.quizname}</td>
+                                                <td>{s.score}</td>
+                                            </tr>;
+                                        })
+                                    )
                                 }
                             </tbody>
                         </Table>
