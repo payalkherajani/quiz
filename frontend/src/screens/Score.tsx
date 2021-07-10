@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from '../components';
 import { Container, Row, Col, Image, Button, Table } from 'react-bootstrap';
 import result from '../assets/result.svg';
 import { useNavigate } from 'react-router';
+import { useAppContext } from '../context/Context';
+import { UPDATE_USER_SCORE } from '../constants/constants';
 
 const Score = () => {
 
     const navigate = useNavigate();
+    const { state, dispatch } = useAppContext();
 
+    useEffect(() => {
+        dispatch({ type: UPDATE_USER_SCORE, payload: { scoreDetails: [] } });  // need response here
+    }, []);
     const backToLandingPage = () => {
         navigate('/landing');
     };

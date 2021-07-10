@@ -4,6 +4,7 @@ import User from "../models/user.model";
 import { UserFields } from "../models/user.model";
 import { generateToken } from "../utlis/generateToken";
 import bcrypt from 'bcrypt';
+import { Categories } from "../models";
 const mongoose = require('mongoose');
 
 
@@ -99,4 +100,17 @@ const UpdateScore = asyncHandler(async (req: Request, res: Response) => {
     return res.status(200).json({ success: true, updatedResults });
 });
 
-export { registerNewUser, loginUser, UpdateScore, getUserByID };
+
+const getUserScoreDetails = asyncHandler(async (req: Request, res: Response) => {
+    const userId = req.user!.id;
+
+    //2-level-of populate data
+    const details = await User.findOne({ _id: userId }).populate({
+        path: 'quizPlayed.quiz',
+        select: ['quizname', 'category'],
+        populate: { path: 'category', select: 'level' }
+    }).exec();
+    const scoredetails = details?.quizPlayed;
+    return res.status(200).json({ success: true, scoredetails });
+});
+export { registerNewUser, loginUser, UpdateScore, getUserByID, getUserScoreDetails };

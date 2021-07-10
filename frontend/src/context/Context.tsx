@@ -16,7 +16,8 @@ const initialState: StateInterface = {
     selectedCategoryQuizzess: [],
     selectedQuizQuestions: [],
     pointerOnQuestionNumber: 0,
-    totalscore: 0
+    totalscore: 0,
+    scoreDetailsOfUser: []
 };
 
 export const Provider: React.FC = ({ children }): JSX.Element => {

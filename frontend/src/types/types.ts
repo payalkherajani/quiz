@@ -5,7 +5,8 @@ import {
     INCREASE_POINTER_OF_QUESTION,
     SELECTED_CATERGORY,
     SET_LOGGED_IN_USER_DETAILS,
-    UPDATE_TOTAL_SCORE
+    UPDATE_TOTAL_SCORE,
+    UPDATE_USER_SCORE
 } from '../constants/constants';
 
 // ----------------------------------------------------CONTEXT--------------------------------------------------
@@ -22,6 +23,7 @@ export interface StateInterface {
     selectedQuizQuestions: Question[];
     pointerOnQuestionNumber: number;
     totalscore: number;
+    scoreDetailsOfUser: [];
 }
 
 export interface ContextValue {
@@ -59,6 +61,10 @@ export type ActionsTypes =
     {
         type: typeof SET_LOGGED_IN_USER_DETAILS,
         payload: { user: User; };
+    } |
+    {
+        type: typeof UPDATE_USER_SCORE,
+        payload: { scoreDetails: []; };
     };
 
 //---------------------------------------------------------CATEGORY---------------------------------------------
