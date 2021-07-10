@@ -37,7 +37,7 @@ const Play = () => {
 
     const navigateToMyScores = () => {
         //update user score and then redirect to that page and show all history of played games and scores
-        navigate('/');   //change to user Scores
+        navigate('/score');   //change to user Scores
     };
     return (
         <>
