@@ -5,18 +5,33 @@ import result from '../assets/result.svg';
 import { useNavigate } from 'react-router';
 import { useAppContext } from '../context/Context';
 import { UPDATE_USER_SCORE } from '../constants/constants';
+import { scoreDetails } from '../services/users.service';
+import { toast } from 'react-toastify';
 
 const Score = () => {
 
     const navigate = useNavigate();
     const { state, dispatch } = useAppContext();
 
+    const getScoreDetailsforLoggedInUser = async () => {
+        const response = await scoreDetails();
+        if (response.status === 200) {
+            dispatch({ type: UPDATE_USER_SCORE, payload: { scoreDetails: response.data.scoredetails } });  // need response here
+        }
+        else {
+            const errorMessage = response.data.message;
+            toast.error(errorMessage);
+        }
+    };
+
     useEffect(() => {
-        dispatch({ type: UPDATE_USER_SCORE, payload: { scoreDetails: [] } });  // need response here
+        getScoreDetailsforLoggedInUser();
     }, []);
+
     const backToLandingPage = () => {
         navigate('/landing');
     };
+    const { scoreDetailsOfUser } = state;
     return (
         <div>
             <Navbar />
@@ -31,25 +46,23 @@ const Score = () => {
                         <Table striped bordered hover>
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <th>S.No</th>
+                                    <th>Level</th>
+                                    <th>QuizName</th>
+                                    <th>Score</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
+                                {
+                                    scoreDetailsOfUser.map((s: any, index: number) => {
+                                        return <tr>
+                                            <td>{index + 1}</td>
+                                            <td>{s?.quiz.category.level}</td>
+                                            <td>{s?.quiz.quizname}</td>
+                                            <td>{s.score}</td>
+                                        </tr>;
+                                    })
+                                }
                             </tbody>
                         </Table>
                     </Col>

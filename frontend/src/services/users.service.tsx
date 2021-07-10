@@ -52,4 +52,13 @@ const updateUserScore = async (totalscore: number, id: any) => {
     }
 };
 
-export { registerNewUser, userLogin, getUserDetails, updateUserScore };
+const scoreDetails = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/user/scoredetails`,
+            { headers: { 'x-auth-token': localStorage.getItem('token') } });
+        return response;
+    } catch (err) {
+        return err.response;
+    }
+};
+export { registerNewUser, userLogin, getUserDetails, updateUserScore, scoreDetails };

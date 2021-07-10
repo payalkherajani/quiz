@@ -5,7 +5,8 @@ import {
     INCREASE_POINTER_OF_QUESTION,
     SELECTED_CATERGORY,
     SET_LOGGED_IN_USER_DETAILS,
-    UPDATE_TOTAL_SCORE
+    UPDATE_TOTAL_SCORE,
+    UPDATE_USER_SCORE
 } from '../constants/constants';
 
 import {
@@ -37,6 +38,8 @@ export const reducer = (state: StateInterface, action: ActionsTypes): StateInter
         case SET_LOGGED_IN_USER_DETAILS:
             return { ...state, user: action.payload.user };
 
+        case UPDATE_USER_SCORE:
+            return { ...state, scoreDetailsOfUser: action.payload.scoreDetails };
         default:
             return state;
     }
