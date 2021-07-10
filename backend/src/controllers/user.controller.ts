@@ -4,7 +4,8 @@ import User from "../models/user.model";
 import { UserFields } from "../models/user.model";
 import { generateToken } from "../utlis/generateToken";
 import bcrypt from 'bcrypt';
-// import { IRequest } from "../middlewares/auth.middleware";
+const mongoose = require('mongoose');
+
 
 const registerNewUser = asyncHandler(async (req: Request, res: Response) => {
     const { name, email, password }: UserFields = req.body;
@@ -61,12 +62,41 @@ const getUserByID = async (req: Request, res: Response) => {
 
 
 const UpdateScore = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.params;
 
-    const user = await User.findOne({ _id: id });
+    const userId = req.user!.id;
+    const { quizId, score } = req.body;
+    const user = await User.findOne({ _id: userId });
     if (!user) {
         return res.status(400).json({ success: false, message: 'No User Found' });
     }
+
+    let quizUpdated;
+
+    const quizIDdontExists = user.quizPlayed.some((q) => q.quiz == quizId);
+
+
+    if (user.quizPlayed.length === 0 || !quizIDdontExists) {
+        quizUpdated = [...user.quizPlayed, { _id: new mongoose.Types.ObjectId(), quiz: quizId, score: score }];
+    }
+    else {
+        quizUpdated = user.quizPlayed.map((q) => {
+            if (q.quiz == quizId) {
+                q.score = Number(score);
+            }
+            return q;
+        });
+    }
+
+    const update = {
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        quizPlayed: quizUpdated
+    };
+
+    const updatedResults = await User.findOneAndUpdate({ _id: userId }, { $set: update }, { new: true });
+
+    return res.status(200).json({ success: true, updatedResults });
 });
 
 export { registerNewUser, loginUser, UpdateScore, getUserByID };

@@ -28,7 +28,6 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
             return;
         }
 
-        console.log({ decoded });
         req.user = decoded.user;
 
         const { id } = req.user!;
