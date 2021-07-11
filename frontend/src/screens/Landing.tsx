@@ -4,7 +4,7 @@ import { Categories, Carousel } from '../components';
 import { getAllCategories } from '../services/categories.service';
 import { useAppContext } from '../context/Context';
 import { Navbar } from '../components';
-
+import { getUserDetails } from '../services/users.service';
 
 const Landing = (): JSX.Element => {
 
@@ -12,6 +12,7 @@ const Landing = (): JSX.Element => {
 
     useEffect(() => {
         getAllCategories(dispatch);
+        getUserDetails(dispatch);
     }, []);
 
     return (
