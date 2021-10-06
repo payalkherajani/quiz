@@ -18,7 +18,7 @@ const NavbarComponent = () => {
     return (
         localStorage.getItem('token') ? (
             <Navbar bg="primary" variant="dark" className="p-2 justify-content-between" sticky="top" >
-                <Navbar.Brand href="#home">
+                <Navbar.Brand>
                     <Image
                         alt=""
                         src={puzzel}
@@ -28,13 +28,12 @@ const NavbarComponent = () => {
                     />{' '}
                     <strong>PAHELI</strong>
                 </Navbar.Brand>
-                <h1 className="text-white">Welcome {state.user.name}</h1>
-                <h4> <Link to='/score' className="text-white">My Scores</Link></h4>
-                <Button onClick={logoutUser}><i className="fas fa-sign-out-alt"></i></Button>
+                <h4> <Link to='/score' className="text-white">SCORES</Link></h4>
+                <Button onClick={logoutUser}><strong>LOGOUT</strong></Button>
             </Navbar>
         ) : (
             <Navbar bg="primary" variant="dark" className="p-2">
-                <Navbar.Brand href="#home">
+                <Navbar.Brand>
                     <Image
                         alt=""
                         src={puzzel}
@@ -50,5 +49,6 @@ const NavbarComponent = () => {
     );
 };
 
+//<h1 className="text-white">Welcome {state.user.name}</h1>
 
 export default NavbarComponent;

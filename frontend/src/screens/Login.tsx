@@ -40,6 +40,7 @@ const Login = () => {
         else {
             const errorMessage = response.data.message;
             toast.error(errorMessage);
+            setFormData({ ...formData, email: ' ', password: ' ' });
         }
     };
 
@@ -93,6 +94,9 @@ const Login = () => {
                                             </Form.Group>
 
                                             <Button type="submit" className="pr-4 pl-4 mb-4">LOGIN</Button>
+                                            <Button type="submit" className="pr-4 pl-4 ml-4 mb-4" onClick={() =>
+                                                setFormData({ ...formData, email: 'guestuser@gmail.com', password: '123456' })
+                                            }> GUEST LOGIN </Button>
                                             <p>Don't have an account? <Link to='/register'> <span style={{ textDecoration: 'underline' }}>REGISTER</span></Link></p>
                                         </Form>
                                     </Col>

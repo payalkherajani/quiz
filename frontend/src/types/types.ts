@@ -48,7 +48,7 @@ export type ActionsTypes =
     }
     | {
         type: typeof ADD_SELECTED_QUIZ_QUESTIONS,
-        payload: { selectedQuizQuestions: Question[]; };
+        payload: { selectedQuizQuestions: Question[], pointerOnQuestionNumber: number; };
     }
     | {
         type: typeof UPDATE_TOTAL_SCORE,

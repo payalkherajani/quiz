@@ -29,7 +29,6 @@ const getAllCategories = async (dispatch: Dispatch<ActionsTypes>): Promise<void>
 const getQuizzess = async (dispatch: Dispatch<ActionsTypes>, id: string): Promise<void> => {
     try {
         const response = await axios.get<SelectedCategoryQuizzessRes>(`${process.env.REACT_APP_SERVER_URL}/api/category/${id}`);
-        console.log({ response });
         dispatch({ type: GET_ALL_QUIZZESS_OF_SELECTED_CATEGORY, payload: { selectedCategoryQuizzess: response.data.quizzes } });
     } catch (err) {
         console.log(err);

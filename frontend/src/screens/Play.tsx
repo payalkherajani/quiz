@@ -15,6 +15,7 @@ const Play = () => {
 
     const { state, dispatch } = useAppContext();
     const [revealAnswer, setRevealAnswer] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('');
 
     const { selectedQuizQuestions, pointerOnQuestionNumber } = state;
     const { chooseCategoryDetails: { selectedCategory, selectedCategoryID } } = state;
@@ -48,6 +49,8 @@ const Play = () => {
             toast.error(errorMessage);
         }
     };
+
+    console.log(state, "56");
     return (
         <>
             <Navbar />
@@ -77,8 +80,12 @@ const Play = () => {
                                         variant="info"
                                         className="mb-2 p-3"
                                         key={option._id}
-                                        onClick={(e) => checkmyAnswer(e, option.isRight)}
-                                        style={revealAnswer === true ? { backgroundColor: option.isRight ? "green" : "red" } : { backgroundColor: "white" }}
+                                        onClick={(e) => {
+                                            checkmyAnswer(e, option.isRight);
+                                            setSelectedOption(option.text);
+                                        }}
+                                        disabled={revealAnswer === true ? (true) : (false)}
+                                        style={revealAnswer === true ? { backgroundColor: option.isRight ? ("green") : selectedOption === option.text ? ("red") : ("white") } : { backgroundColor: "white" }}
                                     >
                                         {option.text}
                                     </Button>
@@ -87,7 +94,15 @@ const Play = () => {
                                 }
                             </ListGroup>
                         </Col>
-                        {pointerOnQuestionNumber === 5 ? <Button onClick={navigateToMyScores}> Check Your Score </Button> : <Button onClick={nextQuestion}>Next</Button>}
+                        {pointerOnQuestionNumber === 5 ?
+                            <Button onClick={navigateToMyScores}>
+                                Check Your Score
+                            </Button> :
+                            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                                <Button onClick={nextQuestion} style={{ width: '40%' }}>Next</Button>
+                                <Button style={{ width: '40%' }} onClick={nextQuestion}>Skip</Button>
+                            </div>
+                        }
 
 
                     </Row>

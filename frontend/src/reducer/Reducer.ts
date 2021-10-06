@@ -27,7 +27,7 @@ export const reducer = (state: StateInterface, action: ActionsTypes): StateInter
             return { ...state, selectedCategoryQuizzess: action.payload.selectedCategoryQuizzess };
 
         case ADD_SELECTED_QUIZ_QUESTIONS:
-            return { ...state, selectedQuizQuestions: action.payload.selectedQuizQuestions };
+            return { ...state, selectedQuizQuestions: action.payload.selectedQuizQuestions, pointerOnQuestionNumber: 0 };
 
         case UPDATE_TOTAL_SCORE:
             return { ...state, totalscore: state.totalscore + action.payload.score };

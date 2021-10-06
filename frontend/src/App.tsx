@@ -13,8 +13,6 @@ import { getUserDetails } from './services/users.service';
 
 function App() {
   const { state, dispatch } = useAppContext();
-  console.log({ state });
-
 
   useEffect(() => {
     if (localStorage.getItem('token')) {

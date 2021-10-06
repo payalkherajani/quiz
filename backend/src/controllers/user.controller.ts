@@ -45,6 +45,12 @@ const loginUser = asyncHandler(async (req: Request, res: Response) => {
             return res.status(400).json({ success: false, message: 'Invalid Credentials' });
         }
     }
+    else if (user === null) {
+        return res.status(400).json({ success: false, message: 'Invalid Credentials' });
+    }
+    else {
+        return res.status(400).json({ success: false, message: 'Something went wrong' });
+    }
 });
 
 

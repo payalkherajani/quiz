@@ -26,7 +26,7 @@ const Quizzes = (): JSX.Element => {
 
 
     const playHandler = (ques: Question[], id: string) => {
-        dispatch({ type: ADD_SELECTED_QUIZ_QUESTIONS, payload: { selectedQuizQuestions: ques } });
+        dispatch({ type: ADD_SELECTED_QUIZ_QUESTIONS, payload: { selectedQuizQuestions: ques, pointerOnQuestionNumber: 0 } });
         navigate(`/play/${id}`);
     };
 
