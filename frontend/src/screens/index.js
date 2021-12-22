@@ -1,0 +1,7 @@
+export { default as Landing } from './Landing'
+export { default as Quizzes } from './Quizzes'
+export { default as Play } from './Play'
+export { default as Login } from './Login'
+export { default as Register } from './Register'
+export { default as NoPageFound } from './PageNotFound'
+export { default as Score } from './Score'

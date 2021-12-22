@@ -1,0 +1,139 @@
+{
+    "quizname": "7 Wonders of World",
+    "category": "60bc591e5e124c1a687857d7",
+    "questions": [
+        {
+            "question": "Which of the following is an ancient seven wonder?",
+            "image": "https://images.adsttc.com/media/images/5a2a/d784/b22e/3819/db00/021f/newsletter/BeFunky_Collage.jpg?1512757113",
+            "options": [
+                {
+                    "text": "The Great Wall Of China",
+                    "isRight": true 
+                },
+                {
+                    "text": "St. Louis Arch",
+                    "isRight": false 
+                },
+                {
+                    "text": "The Colliseum",
+                    "isRight": false 
+                },
+                {
+                    "text": "The Hanging Gardens of Babylon",
+                    "isRight": false 
+                }
+            ]
+        },
+		{
+            "question": "Which is called the first wonder of the world?",
+            "image": "https://images.adsttc.com/media/images/5a2a/d784/b22e/3819/db00/021f/newsletter/BeFunky_Collage.jpg?1512757113",
+            "options": [
+                {
+                    "text": "Pyramids of Egpyt",
+                    "isRight": true 
+                },
+                {
+                    "text": "The Hanging Gardens of Babylon",
+                    "isRight": false 
+                },
+                {
+                    "text": "The Tomb of Mausolus",
+                    "isRight": false 
+                },
+                {
+                    "text": "The Colossus of Rhodes",
+                    "isRight": false 
+                }
+            ]
+        },
+		{
+            "question": "Who built the Pharos of Alexandria?",
+            "image": "https://images.adsttc.com/media/images/5a2a/d784/b22e/3819/db00/021f/newsletter/BeFunky_Collage.jpg?1512757113",
+            "options": [
+                {
+                    "text": "Dinocrates",
+                    "isRight": false 
+                },
+                {
+                    "text": "Eudoxus of Cnidus",
+                    "isRight": false 
+                },
+                {
+                    "text": "Mausolus",
+                    "isRight": false 
+                },
+                {
+                    "text": "Sostratus of Cnidus",
+                    "isRight": true
+                }
+            ]
+        },
+		{
+            "question": "Which among the following does not belong to seven new wonders of the world?",
+            "image": "https://images.adsttc.com/media/images/5a2a/d784/b22e/3819/db00/021f/newsletter/BeFunky_Collage.jpg?1512757113",
+            "options": [
+                {
+                    "text": "Taj Mahal of Agra",
+                    "isRight": false
+                },
+                {
+                    "text": "Pyramid at Chichen Itza",
+                    "isRight": false 
+                },
+                {
+                    "text": "Ruins of Petra",
+                    "isRight": false 
+                },
+                {
+                    "text": "The Eiffel Tower in Paris",
+                    "isRight": true
+                }
+            ]
+        },
+		{
+            "question": "Who built Machu Picchu?",
+            "image": "https://images.adsttc.com/media/images/5a2a/d784/b22e/3819/db00/021f/newsletter/BeFunky_Collage.jpg?1512757113",
+            "options": [
+                {
+                    "text": "Atahualpa",
+                    "isRight": false
+                },
+                {
+                    "text": "Huayna Capac",
+                    "isRight": false 
+                },
+                {
+                    "text": "Pachacutec",
+                    "isRight": true 
+                },
+                {
+                    "text": "Viracocha Inca",
+                    "isRight": false
+                }
+            ]
+        },
+		{
+            "question": "Who designed Statue of Christ - The Redeemer?",
+            "image": "https://images.adsttc.com/media/images/5a2a/d784/b22e/3819/db00/021f/newsletter/BeFunky_Collage.jpg?1512757113",
+            "options": [
+                {
+                    "text": "Anna Levinson",
+                    "isRight": false
+                },
+                {
+                    "text": "Apostolos Vellios",
+                    "isRight": false 
+                },
+                {
+                    "text": "Heitor de Silva Costa",
+                    "isRight": true 
+                },
+                {
+                    "text": "Olena Shurkhno",
+                    "isRight": false
+                }
+            ]
+        }
+    ]
+
+}
